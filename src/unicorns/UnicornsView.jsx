@@ -11,8 +11,9 @@ const UnicornsView = () => {
 
   const actionTemplate = (rowData) => (
     <div className="flex gap-2">
-      <Button icon="pi pi-pencil" label="Editar" onClick={() => navigate(`/unicornios/editar/${rowData._id}`)} />
-      <Button icon="pi pi-trash" label="Eliminar" onClick={() => deleteUnicorn(rowData._id)} severity="danger" />
+      
+      <Button icon="pi pi-pencil" label="Editar" onClick={() => navigate(`/unicornios/editar/${rowData.id}`)} />
+      <Button icon="pi pi-trash" label="Eliminar" onClick={() => deleteUnicorn(rowData.id)} severity="danger" />
     </div>
   );
 

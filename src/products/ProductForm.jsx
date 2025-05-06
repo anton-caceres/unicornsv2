@@ -20,7 +20,12 @@ const ProductForm = () => {
 
   const handleSubmit = (values) => {
     setProductData(values);
-    // Aquí puedes agregar lógica para guardar el producto en estado o base de datos
+    // Obtener los productos previos desde localStorage
+    const savedProducts = JSON.parse(localStorage.getItem("products")) || [];
+    // Agregar el nuevo producto
+    const updatedProducts = [...savedProducts, values];
+    // Guardar los productos actualizados en localStorage
+    localStorage.setItem("products", JSON.stringify(updatedProducts));
     navigate("/productos");
   };
 
@@ -60,4 +65,3 @@ const ProductForm = () => {
 };
 
 export default ProductForm;
-

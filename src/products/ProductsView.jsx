@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "primereact/button";
 import { useNavigate } from "react-router-dom";
 
@@ -6,9 +6,21 @@ const ProductsView = () => {
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
 
+  // Cargar productos desde localStorage
+  useEffect(() => {
+    const savedProducts = JSON.parse(localStorage.getItem("products")) || [];
+    setProducts(savedProducts);
+  }, []);
+
+  // Eliminar un producto
   const handleDelete = (id) => {
-    const updated = products.filter((p) => p.id !== id);
-    setProducts(updated);
+    const confirmDelete = window.confirm("¿Estás seguro de que deseas eliminar este producto?");
+    if (confirmDelete) {
+      const updated = products.filter((p) => p.id !== id);
+      setProducts(updated);
+      // Guardamos los productos actualizados en localStorage
+      localStorage.setItem("products", JSON.stringify(updated));
+    }
   };
 
   return (
