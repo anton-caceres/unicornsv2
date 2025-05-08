@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { UnicornProvider } from "./context/UnicornContext";
-import UnicornRoutes from "./unicorns";  // Rutas de Unicornios
+import UnicornRoutes from "./unicorns"; 
 import ProductRoutes from "./products";  // Rutas de Productos
-import Home from "./Home";  // Importa el componente Home
-import './index.css'; // Importa los estilos globales
-import './App.css';   // Importa los estilos específicos de los componentes
+import Home from "./Home";  
+import './index.css';
+import './App.css';   
 
 function App() {
   return (
